@@ -51,14 +51,10 @@ function deleteUsuario(req, res){
 
 function postUsuario (req, res){
 	let usuario = new Usuario()
-	usuario.nombre = req.body.user.nombre
-	usuario.foto = req.body.user.foto
-	usuario.correo = req.body.user.correo
-	usuario.clave = req.body.user.clave
-	usuario.numPartidas = req.body.user.numPartidas
-	usuario.puntuacion = req.body.user.puntuacion
-	usuario.listGanadas = req.body.user.listGanadas
-	console.log("Si")
+	usuario.nombre = req.body.nombre
+	usuario.correo = req.body.correo
+	usuario.clave = req.body.clave
+	usuario.administrador = req.body.administrador
 
 	usuario.save((err, usuarioStored) =>{
 		if(err) res.status(500).send({message: `Error al salvar en la base de datos: ${err}`})

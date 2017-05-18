@@ -5,12 +5,9 @@ const Schema = mongoose.Schema
 
 const UsuarioSchema = Schema({
 	nombre: String,
-	foto: String,
 	correo: String,
 	clave: String,
-	numPartidas: Number,
-	puntuacion: Number,
-	listGanadas: [String]
+	administrador: Boolean
 })
 
 module.exports = mongoose.model('Usuario', UsuarioSchema)

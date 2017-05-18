@@ -14,7 +14,8 @@ const CuponSchema = Schema({
     lugar: String,
     periodoDeUso: String,
     horario: String,
-    comoLlegar: String
+    comoLlegar: String,
+    visitas: Number
 })
 
 module.exports = mongoose.model('Cupon', CuponSchema)

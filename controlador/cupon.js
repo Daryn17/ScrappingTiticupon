@@ -62,6 +62,7 @@ function postCupon (req, res){
     cupon.periodoDeUso = req.body.periodoDeUso
     cupon.horario = req.body.horario
     cupon.comoLlegar = req.body.comoLlegar
+    cupon.visitas = 0
 
 	cupon.save((err, cuponStored) =>{
 		if(err) res.status(500).send({message: `Error al salvar en la base de datos: ${err}`})
