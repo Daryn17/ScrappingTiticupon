@@ -16,6 +16,7 @@ def scrappingTiti():
     for cuponSquare in cuponSquares:
         count+=1
 
+
         imagen = cuponSquare.find('img', attrs={"class": "imagecache imagecache-coupon-slider-responsive"})['src']
 
         informacion = cuponSquare.find('h4', attrs={"class":"product-title"}).get_text()
@@ -32,9 +33,16 @@ def scrappingTiti():
 
         id = count
 
-        cupon = cuponJSON.craerJSON(id,imagen,informacion,precio,ahorro,finaliza,tipo)
+        URL = cuponSquare.find('div', attrs={"class": "btn-wrapper"})
 
-        cuponesJSON.append(cupon)
+        a = "https://www.titicupon.com"
+        a = a + URL.find('a')['href']
+
+        print(a)
+
+        #cupon = cuponJSON.craerJSON(id,imagen,informacion,precio,ahorro,finaliza,tipo)
+
+        #cuponesJSON.append(cupon)
 
         if(count == 1):
             break
@@ -42,6 +50,6 @@ def scrappingTiti():
 
 def getCuponesJSON():
     scrappingTiti()
-    conexion.insertarCupones(cuponesJSON)
+    #conexion.insertarCupones(cuponesJSON)
 
 getCuponesJSON()
