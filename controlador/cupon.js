@@ -51,21 +51,23 @@ function deleteCupon(req, res){
 
 function postCupon (req, res){
 	let cupon = new Cupon()
-	console.log("Sii...........")
-	console.log(req)
-	/*cupon.imagen = req.query["imagen"]
+	cupon.imagen = req.body.imagen
 	cupon.informacion = req.body.informacion
-	cupon.precio = req.body.precio
+	cupon.precioActual = req.body.precioActual
 	cupon.ahorro = req.body.ahorro
 	cupon.finaliza = req.body.finaliza
 	cupon.tipo = req.body.tipo
+	cupon.precioOriginal = req.body.precioOriginal
+    cupon.lugar = req.body.lugar
+    cupon.periodoDeUso = req.body.periodoDeUso
+    cupon.horario = req.body.horario
+    cupon.comoLlegar = req.body.comoLlegar
 
 	cupon.save((err, cuponStored) =>{
 		if(err) res.status(500).send({message: `Error al salvar en la base de datos: ${err}`})
 
 		res.status(200).send({cupon: cuponStored})
-	})*/
-	res.status(200)
+	})
 }
 
 module.exports = {
